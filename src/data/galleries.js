@@ -1,4 +1,4 @@
-import { Heart, User, Mountain, PartyPopper } from 'lucide-react';
+import { Heart, User, Mountain, PartyPopper, Baby, Church } from 'lucide-react';
 
 /**
  * Configuration des galeries photos
@@ -11,6 +11,30 @@ import { Heart, User, Mountain, PartyPopper } from 'lucide-react';
 
 export const galleries = [
   {
+    id: 'baptemes',
+    title: 'Baptêmes',
+    slug: 'baptemes',
+    description: 'Les moments précieux et émouvants de ce sacrement',
+    icon: Baby,
+    coverImage: '/galleries/baptemes/cover.jpg',
+    photoCount: 0,
+    featured: true,
+    order: 1,
+    tags: ['baptême', 'famille', 'cérémonie', 'bébé'],
+  },
+  {
+    id: 'communions',
+    title: 'Communions',
+    slug: 'communions',
+    description: 'Célébrez ce moment important avec des photos inoubliables',
+    icon: Church,
+    coverImage: '/galleries/communions/cover.jpg',
+    photoCount: 0,
+    featured: true,
+    order: 2,
+    tags: ['communion', 'enfant', 'cérémonie', 'église'],
+  },
+  {
     id: 'mariages',
     title: 'Mariages',
     slug: 'mariages',
@@ -19,7 +43,7 @@ export const galleries = [
     coverImage: '/galleries/mariages/cover.jpg', // À remplacer par votre photo
     photoCount: 0, // Mettez à jour avec le nombre réel de photos
     featured: true,
-    order: 1,
+    order: 3,
     tags: ['mariage', 'couple', 'cérémonie', 'réception'],
   },
   {
@@ -31,7 +55,7 @@ export const galleries = [
     coverImage: '/galleries/portraits/cover.jpg',
     photoCount: 0,
     featured: true,
-    order: 2,
+    order: 4,
     tags: ['portrait', 'studio', 'individuel', 'professionnel'],
   },
   {
@@ -43,7 +67,7 @@ export const galleries = [
     coverImage: '/galleries/paysages/cover.jpg',
     photoCount: 0,
     featured: true,
-    order: 3,
+    order: 5,
     tags: ['paysage', 'nature', 'voyage', 'outdoor'],
   },
   {
@@ -54,8 +78,8 @@ export const galleries = [
     icon: PartyPopper,
     coverImage: '/galleries/evenements/cover.jpg',
     photoCount: 0,
-    featured: false,
-    order: 4,
+    featured: true,
+    order: 6,
     tags: ['événement', 'corporate', 'soirée', 'reportage'],
   },
 ];
@@ -80,6 +104,8 @@ export const samplePhotos = {
   portraits: [],
   paysages: [],
   evenements: [],
+  baptemes: [],
+  communions: [],
 };
 
 /**

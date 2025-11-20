@@ -57,6 +57,28 @@ const GalleryPage = () => {
       tags: ['événement', 'corporate'],
       featured: false,
     })),
+    // Baptêmes
+    ...Array.from({ length: 8 }, (_, i) => ({
+      id: `bapteme-${i + 1}`,
+      src: '',
+      alt: `Baptême ${i + 1}`,
+      title: `Baptême ${i + 1}`,
+      description: 'Moments précieux du baptême',
+      category: 'baptemes',
+      tags: ['baptême', 'famille', 'cérémonie'],
+      featured: false,
+    })),
+    // Communions
+    ...Array.from({ length: 8 }, (_, i) => ({
+      id: `communion-${i + 1}`,
+      src: '',
+      alt: `Communion ${i + 1}`,
+      title: `Communion ${i + 1}`,
+      description: 'Souvenirs inoubliables de communion',
+      category: 'communions',
+      tags: ['communion', 'enfant', 'cérémonie'],
+      featured: false,
+    })),
   ];
 
   // Filtrer les photos selon la catégorie active
