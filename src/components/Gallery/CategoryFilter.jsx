@@ -3,17 +3,18 @@ import PropTypes from 'prop-types';
 
 const CategoryFilter = ({ categories, activeCategory, onCategoryChange }) => {
   return (
-    <div className="flex flex-wrap justify-center gap-3 mb-12">
+    <div className="flex flex-wrap justify-center gap-4 mb-16">
       {/* Filtre "Toutes" */}
       <motion.button
         onClick={() => onCategoryChange('all')}
-        className={`px-6 py-3 rounded-lg font-medium transition-all ${
+        className={`px-8 py-3.5 rounded-xl font-subheading font-semibold text-sm tracking-wide uppercase transition-all ${
           activeCategory === 'all'
-            ? 'bg-gradient-to-r from-primary-600 to-accent-600 text-white shadow-lg'
-            : 'bg-accent-900/30 border border-accent-700/30 text-accent-300 hover:border-accent-600 hover:text-white'
+            ? 'bg-gold-gradient text-cream-50 shadow-soft-lg'
+            : 'border-2 border-[#E8DDD5] text-[#8B7355] hover:border-[#D4A574] hover:bg-cream-200 hover:text-[#7D6B5A] shadow-soft'
         }`}
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.05, y: -2 }}
         whileTap={{ scale: 0.95 }}
+        transition={{ type: "spring", stiffness: 400, damping: 17 }}
       >
         Toutes les Photos
         {activeCategory === 'all' && (
@@ -37,22 +38,23 @@ const CategoryFilter = ({ categories, activeCategory, onCategoryChange }) => {
           <motion.button
             key={category.id}
             onClick={() => onCategoryChange(category.id)}
-            className={`px-6 py-3 rounded-lg font-medium transition-all inline-flex items-center gap-2 ${
+            className={`px-8 py-3.5 rounded-xl font-subheading font-semibold text-sm tracking-wide uppercase transition-all inline-flex items-center gap-2.5 ${
               isActive
-                ? 'bg-gradient-to-r from-primary-600 to-accent-600 text-white shadow-lg'
-                : 'bg-accent-900/30 border border-accent-700/30 text-accent-300 hover:border-accent-600 hover:text-white'
+                ? 'bg-gold-gradient text-cream-50 shadow-soft-lg'
+                : 'border-2 border-[#E8DDD5] text-[#8B7355] hover:border-[#D4A574] hover:bg-cream-200 hover:text-[#7D6B5A] shadow-soft'
             }`}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            {Icon && <Icon className="w-4 h-4" />}
+            {Icon && <Icon className="w-5 h-5" />}
             <span>{category.title}</span>
             {category.photoCount > 0 && (
               <span
-                className={`text-xs px-2 py-0.5 rounded-full ${
+                className={`text-xs px-2.5 py-1 rounded-full font-medium ${
                   isActive
-                    ? 'bg-white/20'
-                    : 'bg-accent-800/50'
+                    ? 'bg-cream-50/25 text-cream-50'
+                    : 'bg-[#E8DDD5] text-[#8B7355]'
                 }`}
               >
                 {category.photoCount}

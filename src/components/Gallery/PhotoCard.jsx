@@ -17,79 +17,81 @@ const PhotoCard = ({ photo, onClick, index = 0 }) => {
 
   return (
     <motion.div
-      className="group relative aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-primary-900 to-secondary-900 cursor-pointer masonry-item"
+      className="group relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-cream-300 to-cream-100 cursor-pointer shadow-soft hover:shadow-elegant transition-all duration-400"
       onClick={() => onClick && onClick(photo)}
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: index * 0.05, duration: 0.3 }}
-      whileHover={{ scale: 1.02 }}
+      transition={{ delay: index * 0.05, duration: 0.4, type: "spring", stiffness: 300 }}
+      whileHover={{ scale: 1.03, y: -5 }}
     >
       {/* Image - Placeholder si pas de src */}
       {photo.src ? (
         <img
           src={photo.src}
           alt={photo.alt || photo.title || 'Photo'}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           loading="lazy"
         />
       ) : (
-        <div className="w-full h-full flex items-center justify-center">
-          <Camera className="w-16 h-16 text-accent-500/30" />
+        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-cream-300 to-cream-100 transition-transform duration-500 group-hover:scale-110">
+          <Camera className="w-16 h-16 text-[#A89080]/40" />
         </div>
       )}
 
       {/* Overlay au survol */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className="absolute inset-0 bg-gradient-to-t from-[#7D6B5A]/95 via-[#7D6B5A]/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
         {/* Titre & Description */}
-        <div className="absolute bottom-0 left-0 right-0 p-4">
+        <div className="absolute bottom-0 left-0 right-0 p-6">
           {photo.title && (
-            <h3 className="text-white font-semibold mb-1 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            <h3 className="text-cream-50 font-heading font-semibold text-lg mb-2 transform translate-y-3 group-hover:translate-y-0 transition-transform duration-400">
               {photo.title}
             </h3>
           )}
           {photo.description && (
-            <p className="text-accent-300 text-sm transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+            <p className="text-cream-100 font-body text-sm transform translate-y-3 group-hover:translate-y-0 transition-transform duration-400 delay-75">
               {photo.description}
             </p>
           )}
         </div>
 
         {/* Actions */}
-        <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+        <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-400 delay-100">
           <motion.button
             onClick={handleLike}
-            className="p-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors"
-            whileHover={{ scale: 1.1 }}
+            className="p-2.5 rounded-full bg-cream-50/25 backdrop-blur-md hover:bg-cream-50/40 transition-all shadow-soft"
+            whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400 }}
             aria-label="Like"
           >
-            <Heart className="w-4 h-4 text-white" />
+            <Heart className="w-4 h-4 text-cream-50" />
           </motion.button>
           <motion.button
             onClick={handleDownload}
-            className="p-2 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 transition-colors"
-            whileHover={{ scale: 1.1 }}
+            className="p-2.5 rounded-full bg-cream-50/25 backdrop-blur-md hover:bg-cream-50/40 transition-all shadow-soft"
+            whileHover={{ scale: 1.15 }}
             whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring", stiffness: 400 }}
             aria-label="Download"
           >
-            <Download className="w-4 h-4 text-white" />
+            <Download className="w-4 h-4 text-cream-50" />
           </motion.button>
         </div>
 
         {/* Icône d'agrandissement */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="p-4 rounded-full bg-white/20 backdrop-blur-sm">
-            <Eye className="w-8 h-8 text-white" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-400 group-hover:scale-110">
+          <div className="p-5 rounded-full bg-cream-50/30 backdrop-blur-md shadow-soft-lg">
+            <Eye className="w-8 h-8 text-cream-50" />
           </div>
         </div>
 
         {/* Tags */}
         {photo.tags && photo.tags.length > 0 && (
-          <div className="absolute top-4 left-4 flex flex-wrap gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+          <div className="absolute top-4 left-4 flex flex-wrap gap-2 opacity-0 group-hover:opacity-100 transition-all duration-400 delay-100">
             {photo.tags.slice(0, 2).map((tag, idx) => (
               <span
                 key={idx}
-                className="px-2 py-1 text-xs rounded-full bg-white/20 backdrop-blur-sm text-white"
+                className="px-3 py-1.5 text-xs rounded-full bg-cream-50/25 backdrop-blur-md text-cream-50 font-subheading font-medium shadow-soft"
               >
                 {tag}
               </span>
@@ -100,8 +102,8 @@ const PhotoCard = ({ photo, onClick, index = 0 }) => {
 
       {/* Badge "Featured" si applicable */}
       {photo.featured && (
-        <div className="absolute bottom-4 right-4 px-3 py-1 rounded-full bg-gold-600/90 backdrop-blur-sm text-white text-xs font-semibold z-10">
-          Featured
+        <div className="absolute bottom-4 right-4 px-4 py-2 rounded-full bg-gold-gradient backdrop-blur-md text-cream-50 text-xs font-subheading font-semibold z-10 shadow-soft-lg">
+          ⭐ Featured
         </div>
       )}
     </motion.div>

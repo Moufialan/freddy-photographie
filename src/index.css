@@ -3,10 +3,11 @@
 @tailwind utilities;
 
 @layer base {
-  /* Fond global photographe - noir chaud */
+  /* Fond global photographe - Lumineux et élégant */
   body {
-    @apply bg-gradient-to-br from-primary-950 via-primary-900 to-secondary-950 text-accent-100;
-    @apply min-h-screen;
+    @apply bg-subtle-gradient;
+    @apply min-h-screen font-body;
+    color: #8F7A65; /* beige-body */
   }
 
   /* Scroll smooth */
@@ -18,13 +19,23 @@
   img {
     @apply max-w-full h-auto;
   }
+
+  /* Typographie par défaut - Tons beiges */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+    color: #7D6B5A; /* beige-primary */
+  }
+
+  p, span, div {
+    color: #8F7A65; /* beige-body */
+  }
 }
 
 @layer utilities {
   /* Utilitaire pour grille masonry */
   .masonry-grid {
     column-count: 1;
-    column-gap: 1rem;
+    column-gap: 1.5rem;
   }
 
   @media (min-width: 640px) {
@@ -41,16 +52,12 @@
 
   .masonry-item {
     break-inside: avoid;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
-  /* Effet glassmorphisme pour cartes */
-  .glass {
-    @apply bg-white/5 backdrop-blur-md border border-white/10;
-  }
-
-  /* Overlay gradient pour photos */
+  /* Overlay gradient pour photos - Version beige */
   .photo-overlay {
-    @apply absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent;
+    @apply absolute inset-0;
+    background: linear-gradient(to top, rgba(125, 107, 90, 0.9), rgba(125, 107, 90, 0.3), transparent);
   }
 }

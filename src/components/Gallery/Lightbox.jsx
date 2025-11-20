@@ -55,12 +55,12 @@ const Lightbox = ({ isOpen, photo, photos, currentIndex, onClose, onNext, onPrev
           {/* Bouton Fermer */}
           <motion.button
             onClick={onClose}
-            className="absolute top-4 right-4 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-50"
+            className="absolute top-4 right-4 p-3 rounded-full bg-cream-50/10 hover:bg-cream-50/20 transition-colors z-50"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             aria-label="Fermer"
           >
-            <X className="w-6 h-6 text-white" />
+            <X className="w-6 h-6 text-[#8F7A65]" />
           </motion.button>
 
           {/* Navigation Précédent */}
@@ -70,12 +70,12 @@ const Lightbox = ({ isOpen, photo, photos, currentIndex, onClose, onNext, onPrev
                 e.stopPropagation();
                 onPrevious();
               }}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-50"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 p-3 rounded-full bg-cream-50/10 hover:bg-cream-50/20 transition-colors z-50"
               whileHover={{ scale: 1.1, x: -5 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Photo précédente"
             >
-              <ChevronLeft className="w-8 h-8 text-white" />
+              <ChevronLeft className="w-8 h-8 text-[#8F7A65]" />
             </motion.button>
           )}
 
@@ -86,12 +86,12 @@ const Lightbox = ({ isOpen, photo, photos, currentIndex, onClose, onNext, onPrev
                 e.stopPropagation();
                 onNext();
               }}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors z-50"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 p-3 rounded-full bg-cream-50/10 hover:bg-cream-50/20 transition-colors z-50"
               whileHover={{ scale: 1.1, x: 5 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Photo suivante"
             >
-              <ChevronRight className="w-8 h-8 text-white" />
+              <ChevronRight className="w-8 h-8 text-[#8F7A65]" />
             </motion.button>
           )}
 
@@ -102,38 +102,38 @@ const Lightbox = ({ isOpen, photo, photos, currentIndex, onClose, onNext, onPrev
                 e.stopPropagation();
                 handleShare();
               }}
-              className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              className="p-3 rounded-full bg-cream-50/10 hover:bg-cream-50/20 transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Partager"
             >
-              <Share2 className="w-5 h-5 text-white" />
+              <Share2 className="w-5 h-5 text-[#8F7A65]" />
             </motion.button>
             <motion.button
               onClick={(e) => {
                 e.stopPropagation();
                 handleDownload();
               }}
-              className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              className="p-3 rounded-full bg-cream-50/10 hover:bg-cream-50/20 transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Télécharger"
             >
-              <Download className="w-5 h-5 text-white" />
+              <Download className="w-5 h-5 text-[#8F7A65]" />
             </motion.button>
             <motion.button
-              className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              className="p-3 rounded-full bg-cream-50/10 hover:bg-cream-50/20 transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Zoomer"
             >
-              <ZoomIn className="w-5 h-5 text-white" />
+              <ZoomIn className="w-5 h-5 text-[#8F7A65]" />
             </motion.button>
           </div>
 
           {/* Compteur de photos */}
           {photos && photos.length > 1 && (
-            <div className="absolute top-4 left-4 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm z-50">
+            <div className="absolute top-4 left-4 px-4 py-2 rounded-full bg-cream-50/10 backdrop-blur-sm text-[#8F7A65] text-sm z-50">
               {currentIndex + 1} / {photos.length}
             </div>
           )}
@@ -155,7 +155,7 @@ const Lightbox = ({ isOpen, photo, photos, currentIndex, onClose, onNext, onPrev
               />
             ) : (
               <div className="w-96 h-96 flex items-center justify-center bg-primary-900 rounded-lg">
-                <span className="text-accent-500">Image non disponible</span>
+                <span className="text-[#8B7355]">Image non disponible</span>
               </div>
             )}
 
@@ -168,17 +168,17 @@ const Lightbox = ({ isOpen, photo, photos, currentIndex, onClose, onNext, onPrev
                 transition={{ delay: 0.2 }}
               >
                 {photo.title && (
-                  <h2 className="text-2xl font-bold text-white mb-2">{photo.title}</h2>
+                  <h2 className="text-2xl font-bold text-[#8F7A65] mb-2">{photo.title}</h2>
                 )}
                 {photo.description && (
-                  <p className="text-accent-300">{photo.description}</p>
+                  <p className="text-[#A89080]">{photo.description}</p>
                 )}
                 {photo.tags && photo.tags.length > 0 && (
                   <div className="flex flex-wrap gap-2 mt-3">
                     {photo.tags.map((tag, idx) => (
                       <span
                         key={idx}
-                        className="px-3 py-1 text-xs rounded-full bg-white/20 backdrop-blur-sm text-white"
+                        className="px-3 py-1 text-xs rounded-full bg-cream-50/20 backdrop-blur-sm text-[#8F7A65]"
                       >
                         #{tag}
                       </span>
@@ -190,7 +190,7 @@ const Lightbox = ({ isOpen, photo, photos, currentIndex, onClose, onNext, onPrev
           </motion.div>
 
           {/* Hint - Instructions clavier */}
-          <div className="absolute bottom-4 left-4 text-sm text-accent-400 z-50">
+          <div className="absolute bottom-4 left-4 text-sm text-[#8F7A65] z-50">
             <p>← → pour naviguer • ESC pour fermer</p>
           </div>
         </motion.div>

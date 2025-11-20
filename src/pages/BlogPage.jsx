@@ -50,7 +50,7 @@ const blogPosts = [
 const BlogCard = ({ post }) => {
   return (
     <motion.article
-      className="group rounded-xl overflow-hidden border border-accent-700/30 bg-accent-900/30 backdrop-blur-sm"
+      className="group rounded-xl overflow-hidden border border-[#A89080]700/30 bg-accent-900/30 backdrop-blur-sm"
       whileHover={{ y: -5 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -59,10 +59,10 @@ const BlogCard = ({ post }) => {
       <div className="aspect-video overflow-hidden bg-gradient-to-br from-primary-900 to-accent-900 relative">
         {/* Placeholder - remplacer par vraie image */}
         <div className="w-full h-full flex items-center justify-center">
-          <span className="text-accent-500/30 text-sm">Image à venir</span>
+          <span className="text-[#8B7355]/30 text-sm">Image à venir</span>
         </div>
         <div className="absolute top-4 left-4">
-          <span className="px-3 py-1 rounded-full bg-accent-900/80 backdrop-blur-sm border border-accent-700/50 text-accent-300 text-xs font-medium">
+          <span className="px-3 py-1 rounded-full bg-accent-900/80 backdrop-blur-sm border border-[#A89080]700/50 text-[#A89080] text-xs font-medium">
             {post.category}
           </span>
         </div>
@@ -70,7 +70,7 @@ const BlogCard = ({ post }) => {
 
       {/* Content */}
       <div className="p-6">
-        <div className="flex items-center gap-4 text-sm text-accent-400 mb-3">
+        <div className="flex items-center gap-4 text-sm text-[#8F7A65] mb-3">
           <span className="flex items-center gap-1">
             <Calendar className="w-4 h-4" />
             {new Date(post.date).toLocaleDateString('fr-FR', {
@@ -85,17 +85,17 @@ const BlogCard = ({ post }) => {
           </span>
         </div>
 
-        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-accent-300 transition-colors">
+        <h3 className="text-xl font-bold text-[#8F7A65] mb-3 group-hover:text-[#A89080] transition-colors">
           {post.title}
         </h3>
 
-        <p className="text-accent-300 mb-4 line-clamp-2">
+        <p className="text-[#A89080] mb-4 line-clamp-2">
           {post.excerpt}
         </p>
 
         <Link
           to={`/blog/${post.slug}`}
-          className="inline-flex items-center gap-2 text-accent-400 hover:text-accent-300 transition-colors group/link"
+          className="inline-flex items-center gap-2 text-[#8F7A65] hover:text-[#A89080] transition-colors group/link"
         >
           Lire la suite
           <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
@@ -134,11 +134,11 @@ const BlogPage = () => {
         animate={{ opacity: 1, y: 0 }}
       >
         <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          <span className="bg-gradient-to-r from-white via-accent-200 to-white text-transparent bg-clip-text">
+          <span className="bg-gradient-to-r from-[#7D6B5A] via-[#A89080] to-[#7D6B5A] text-transparent bg-clip-text">
             Blog
           </span>
         </h1>
-        <p className="text-xl text-accent-300 max-w-2xl mx-auto">
+        <p className="text-xl text-[#A89080] max-w-2xl mx-auto">
           Conseils, inspirations et histoires derrière l&apos;objectif
         </p>
       </motion.div>
@@ -155,8 +155,8 @@ const BlogPage = () => {
             key={category}
             className={`px-4 py-2 rounded-full border transition-all ${
               index === 0
-                ? 'bg-accent-700/50 border-accent-600 text-white'
-                : 'border-accent-700/30 text-accent-400 hover:border-accent-600 hover:text-white'
+                ? 'bg-accent-700/50 border-[#A89080]600 text-[#8F7A65]'
+                : 'border-[#A89080]700/30 text-[#8F7A65] hover:border-[#A89080]600 hover:text-[#8F7A65]'
             }`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -187,25 +187,25 @@ const BlogPage = () => {
 
       {/* Newsletter CTA */}
       <motion.div
-        className="mt-20 p-8 rounded-xl bg-gradient-to-br from-primary-900/30 to-accent-900/30 border border-accent-700/30 text-center"
+        className="mt-20 p-8 rounded-xl bg-gradient-to-br from-primary-900/30 to-accent-900/30 border border-[#A89080]700/30 text-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
       >
-        <h2 className="text-2xl font-bold text-white mb-3">
+        <h2 className="text-2xl font-bold text-[#8F7A65] mb-3">
           Restez Informé
         </h2>
-        <p className="text-accent-300 mb-6">
+        <p className="text-[#A89080] mb-6">
           Recevez mes derniers articles et conseils photo directement dans votre boîte mail
         </p>
         <div className="flex max-w-md mx-auto gap-3">
           <input
             type="email"
             placeholder="Votre email"
-            className="flex-1 px-4 py-3 rounded-lg bg-accent-900/50 border border-accent-700/50 text-white placeholder-accent-500 focus:border-accent-500 focus:outline-none"
+            className="flex-1 px-4 py-3 rounded-lg bg-accent-900/50 border border-[#A89080]700/50 text-[#8F7A65] placeholder-accent-500 focus:border-[#A89080]500 focus:outline-none"
           />
           <motion.button
-            className="px-6 py-3 rounded-lg bg-gradient-to-r from-primary-600 to-accent-600 text-white font-medium hover:from-primary-500 hover:to-accent-500"
+            className="px-6 py-3 rounded-lg bg-gradient-to-r from-primary-600 to-accent-600 text-[#8F7A65] font-medium hover:from-primary-500 hover:to-accent-500"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

@@ -54,37 +54,38 @@ const testimonials = [
 const TestimonialCard = ({ testimonial, isActive }) => {
   return (
     <motion.div
-      className={`p-8 rounded-xl border backdrop-blur-sm transition-all ${
+      className={`p-8 rounded-2xl border-2 backdrop-blur-sm transition-all duration-400 ${
         isActive
-          ? 'border-accent-600/50 bg-accent-800/30'
-          : 'border-accent-700/30 bg-accent-900/30'
+          ? 'border-[#D4A574] bg-cream-200 shadow-soft-lg'
+          : 'border-[#E8DDD5] bg-cream-50 shadow-soft'
       }`}
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9 }}
+      whileHover={{ scale: 1.02, y: -5 }}
     >
       <div className="flex items-start gap-4 mb-6">
         {/* Avatar placeholder */}
-        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary-700 to-accent-700 flex items-center justify-center shrink-0">
-          <Heart className="w-8 h-8 text-white/70" />
+        <div className="w-16 h-16 rounded-full bg-gold-gradient flex items-center justify-center shrink-0 shadow-soft">
+          <Heart className="w-8 h-8 text-cream-50" />
         </div>
 
         <div className="flex-1">
-          <h3 className="text-xl font-bold text-white mb-1">{testimonial.name}</h3>
-          <p className="text-accent-400 text-sm mb-2">{testimonial.event} • {testimonial.date}</p>
+          <h3 className="text-xl font-heading font-bold text-[#7D6B5A] mb-1">{testimonial.name}</h3>
+          <p className="text-[#A89080] font-subheading text-sm mb-2 tracking-wide">{testimonial.event} • {testimonial.date}</p>
 
           {/* Stars */}
           <div className="flex gap-1">
             {[...Array(testimonial.rating)].map((_, i) => (
-              <Star key={i} className="w-4 h-4 fill-yellow-500 text-yellow-500" />
+              <Star key={i} className="w-4 h-4 fill-gold-400 text-gold-400" />
             ))}
           </div>
         </div>
 
-        <Quote className="w-10 h-10 text-accent-700/30" />
+        <Quote className="w-10 h-10 text-[#D4A574]/30" />
       </div>
 
-      <p className="text-accent-200 leading-relaxed italic">
+      <p className="text-[#A89080] font-body leading-relaxed italic text-base">
         &ldquo;{testimonial.text}&rdquo;
       </p>
     </motion.div>
@@ -135,36 +136,13 @@ const TestimonialsPage = () => {
         animate={{ opacity: 1, y: 0 }}
       >
         <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          <span className="bg-gradient-to-r from-white via-accent-200 to-white text-transparent bg-clip-text">
+          <span className="bg-gradient-to-r from-[#7D6B5A] via-[#A89080] to-[#7D6B5A] text-transparent bg-clip-text">
             Témoignages
           </span>
         </h1>
-        <p className="text-xl text-accent-300 max-w-2xl mx-auto">
+        <p className="text-xl text-[#A89080] max-w-2xl mx-auto">
           Ce que mes clients disent de leur expérience
         </p>
-      </motion.div>
-
-      {/* Stats Section */}
-      <motion.div
-        className="grid grid-cols-3 gap-6 mb-16"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-      >
-        {[
-          { label: 'Clients satisfaits', value: '250+' },
-          { label: 'Note moyenne', value: '5.0/5' },
-          { label: 'Projets réalisés', value: '500+' }
-        ].map((stat, index) => (
-          <motion.div
-            key={index}
-            className="text-center p-6 rounded-xl bg-accent-900/30 border border-accent-700/30"
-            whileHover={{ scale: 1.05 }}
-          >
-            <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
-            <div className="text-accent-400">{stat.label}</div>
-          </motion.div>
-        ))}
       </motion.div>
 
       {/* Testimonials Carousel - Desktop */}
@@ -194,25 +172,26 @@ const TestimonialsPage = () => {
       </div>
 
       {/* Navigation Controls */}
-      <div className="flex items-center justify-center gap-4 mb-12">
+      <div className="flex items-center justify-center gap-6 mb-12">
         <motion.button
           onClick={prevTestimonial}
-          className="p-3 rounded-full border border-accent-700/50 bg-accent-900/50 hover:border-accent-600 hover:bg-accent-800/50 transition-all"
-          whileHover={{ scale: 1.1 }}
+          className="p-4 rounded-full border-2 border-[#E8DDD5] bg-cream-50 hover:border-[#D4A574] hover:bg-cream-200 transition-all shadow-soft"
+          whileHover={{ scale: 1.15, x: -3 }}
           whileTap={{ scale: 0.9 }}
+          transition={{ type: "spring", stiffness: 400 }}
         >
-          <ChevronLeft className="w-6 h-6 text-accent-300" />
+          <ChevronLeft className="w-6 h-6 text-[#8B7355]" />
         </motion.button>
 
-        <div className="flex gap-2">
+        <div className="flex gap-2.5">
           {testimonials.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`h-2 rounded-full transition-all ${
+              className={`h-2.5 rounded-full transition-all ${
                 index === currentIndex
-                  ? 'w-8 bg-accent-500'
-                  : 'w-2 bg-accent-700'
+                  ? 'w-10 bg-gold-gradient shadow-soft'
+                  : 'w-2.5 bg-[#E8DDD5] hover:bg-[#D4A574]'
               }`}
             />
           ))}
@@ -220,31 +199,33 @@ const TestimonialsPage = () => {
 
         <motion.button
           onClick={nextTestimonial}
-          className="p-3 rounded-full border border-accent-700/50 bg-accent-900/50 hover:border-accent-600 hover:bg-accent-800/50 transition-all"
-          whileHover={{ scale: 1.1 }}
+          className="p-4 rounded-full border-2 border-[#E8DDD5] bg-cream-50 hover:border-[#D4A574] hover:bg-cream-200 transition-all shadow-soft"
+          whileHover={{ scale: 1.15, x: 3 }}
           whileTap={{ scale: 0.9 }}
+          transition={{ type: "spring", stiffness: 400 }}
         >
-          <ChevronRight className="w-6 h-6 text-accent-300" />
+          <ChevronRight className="w-6 h-6 text-[#8B7355]" />
         </motion.button>
       </div>
 
       {/* CTA Section */}
       <motion.div
-        className="p-8 rounded-xl bg-gradient-to-br from-primary-900/30 to-accent-900/30 border border-accent-700/30 text-center"
+        className="p-12 rounded-2xl bg-gradient-to-br from-cream-200 to-cream-100 border-2 border-[#E8DDD5] text-center shadow-soft-lg"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
       >
-        <h2 className="text-2xl font-bold text-white mb-3">
+        <h2 className="text-3xl font-heading font-bold text-[#7D6B5A] mb-4">
           Prêt à Créer vos Souvenirs ?
         </h2>
-        <p className="text-accent-300 mb-6">
+        <p className="text-[#A89080] font-body text-lg mb-8 max-w-xl mx-auto">
           Rejoignez mes clients satisfaits et immortalisez vos moments précieux
         </p>
         <motion.button
-          className="px-8 py-3 rounded-lg bg-gradient-to-r from-primary-600 to-accent-600 text-white font-medium hover:from-primary-500 hover:to-accent-500"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          className="px-12 py-4 rounded-xl bg-gold-gradient text-cream-50 font-subheading font-semibold text-sm tracking-extra-wide uppercase shadow-soft-lg hover:shadow-elegant transition-all duration-300"
+          whileHover={{ scale: 1.05, y: -3 }}
+          whileTap={{ scale: 0.97 }}
+          transition={{ type: "spring", stiffness: 400, damping: 17 }}
         >
           Réserver une Séance
         </motion.button>

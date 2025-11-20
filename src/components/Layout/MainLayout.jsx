@@ -5,14 +5,15 @@ import Footer from '../Navigation/Footer';
 
 const MainLayout = ({ children }) => {
   return (
-    <motion.div 
-      className="min-h-screen w-full bg-page-gradient from-primary-900 via-primary-950 to-black text-white"
+    <motion.div
+      className="min-h-screen w-full bg-subtle-gradient font-body"
+      style={{ color: '#8F7A65' }}
       initial="initial"
       animate="animate"
       exit="exit"
     >
       <Navbar />
-      <main className="max-w-6xl mx-auto px-4 py-32">
+      <main className="max-w-7xl mx-auto px-6 lg:px-12 py-32">
         {children}
       </main>
       <Footer />
