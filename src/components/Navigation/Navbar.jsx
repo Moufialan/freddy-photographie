@@ -31,27 +31,40 @@ const Navbar = () => {
           >
             <Link
               to="/"
-              className="text-xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 text-transparent bg-clip-text"
+              className="flex items-center gap-3"
             >
-              Vite Template
+              <img
+                src="/logo_freddy_photography.avif"
+                alt="Freddy Photographie Logo"
+                className="h-20 w-auto"
+              />
+              <span className="text-xl font-bold bg-gradient-to-r from-accent-200 to-accent-400 text-transparent bg-clip-text hidden sm:inline">
+                Freddy Photographie
+              </span>
             </Link>
           </motion.div>
-          <div className="flex gap-6">
-            {['Example 1', 'Example 2', 'Example 3'].map((item, index) => (
+          <div className="hidden md:flex gap-6">
+            {[
+              { label: 'Galeries', path: '/galeries' },
+              { label: 'Tarifs', path: '/tarifs' },
+              { label: 'Blog', path: '/blog' },
+              { label: 'À Propos', path: '/a-propos' },
+              { label: 'Contact', path: '/contact' }
+            ].map((item) => (
               <motion.div
-                key={item}
+                key={item.label}
                 className="relative group"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Link
-                  to={`/exemple${index + 1}`}
-                  className="text-primary-300 hover:text-primary-400 transition-colors"
+                  to={item.path}
+                  className="text-accent-300 hover:text-accent-100 transition-colors"
                 >
-                  {item}
+                  {item.label}
                 </Link>
                 <motion.span
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-400 to-primary-600 group-hover:w-full transition-all duration-300"
+                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent-400 to-accent-200 group-hover:w-full transition-all duration-300"
                   whileHover={{ width: "100%" }}
                 />
               </motion.div>

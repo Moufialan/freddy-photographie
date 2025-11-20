@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Complet - Portfolio Photographe</title>
+    <style>
+        @page {
+            margin: 2cm;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+        }
+
+        h1 {
+            color: #2c3e50;
+            border-bottom: 4px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            font-size: 2.5em;
+            page-break-after: avoid;
+        }
+
+        h1:first-of-type {
+            margin-top: 0;
+            text-align: center;
+            border-bottom: none;
+            color: #3498db;
+            font-size: 3em;
+        }
+
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            font-size: 1.8em;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            color: #2980b9;
+            margin-top: 20px;
+            font-size: 1.4em;
+            page-break-after: avoid;
+        }
+
+        h4 {
+            color: #7f8c8d;
+            margin-top: 15px;
+            font-size: 1.2em;
+            page-break-after: avoid;
+        }
+
+        p {
+            margin: 10px 0;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        code {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #e74c3c;
+        }
+
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            page-break-inside: avoid;
+        }
+
+        pre code {
+            background: transparent;
+            border: none;
+            color: #ecf0f1;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #3498db;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #ecf0f1;
+            font-style: italic;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+
+        .danger {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+
+        .info {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist li:before {
+            content: '☐ ';
+            margin-right: 10px;
+            color: #3498db;
+            font-size: 1.2em;
+        }
+
+        .file-structure {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            white-space: pre;
+            page-break-inside: avoid;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            border: 2px solid #3498db;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+            page-break-inside: avoid;
+        }
+
+        .toc h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+        }
+
+        .toc ul {
+            margin: 10px 0;
+        }
+
+        .cover {
+            text-align: center;
+            padding: 100px 20px;
+            page-break-after: always;
+        }
+
+        .cover h1 {
+            font-size: 3.5em;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+
+        .cover .subtitle {
+            font-size: 1.5em;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+        }
+
+        .cover .version {
+            font-size: 1em;
+            color: #95a5a6;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #ecf0f1;
+            margin: 40px 0;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+            }
+
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+
+            pre, table, .info, .warning, .success, .danger {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page de couverture -->
+    <div class="cover">
+        <h1>📸 Guide Complet</h1>
+        <div class="subtitle">Portfolio Photographe Professionnel</div>
+        <div class="version">
+            <p><strong>Version 2.0</strong></p>
+            <p>Template React Vite</p>
+            <p>Documentation complète pour photographes</p>
+        </div>
+    </div>
+
+    <!-- Table des matières -->
+    <div class="toc">
+        <h2>📋 Table des Matières</h2>
+        <ol>
+            <li><a href="#demarrage">Démarrage Rapide</a></li>
+            <li><a href="#photos">Ajouter Vos Photos</a></li>
+            <li><a href="#personnalisation">Personnaliser Vos Informations</a></li>
+            <li><a href="#structure">Structure du Site</a></li>
+            <li><a href="#guide-sections">Guide Détaillé par Section</a></li>
+            <li><a href="#conseils">Conseils Techniques</a></li>
+            <li><a href="#problemes">Problèmes Courants</a></li>
+            <li><a href="#deploiement">Déploiement en Ligne</a></li>
+            <li><a href="#checklist">Checklist Avant Mise en Ligne</a></li>
+            <li><a href="#support">Support & Ressources</a></li>
+        </ol>
+    </div>
+
+    <!-- Introduction -->
+    <h1>Bienvenue !</h1>
+
+    <p>Félicitations ! Votre site portfolio photographe est maintenant prêt à l'emploi. Ce guide vous explique tout ce que vous devez savoir pour personnaliser et utiliser votre nouveau site web.</p>
+
+    <div class="info">
+        <strong>📌 Important :</strong> Ce guide est conçu pour être compréhensible même sans connaissances techniques. Suivez les instructions étape par étape.
+    </div>
+
+    <hr>
+
+    <!-- Section 1 : Démarrage -->
+    <h1 id="demarrage">🚀 Démarrage Rapide</h1>
+
+    <h2>1. Lancer Votre Site</h2>
+
+    <p>Ouvrez le terminal (invite de commandes) et tapez :</p>
+
+    <pre><code>npm run dev</code></pre>
+
+    <p>Votre site sera accessible à l'adresse : <strong>http://localhost:5174</strong></p>
+
+    <div class="warning">
+        <strong>⚠️ Note :</strong> Laissez cette fenêtre ouverte tant que vous travaillez sur le site.
+    </div>
+
+    <h2>2. Arrêter le Site</h2>
+
+    <p>Dans le terminal, appuyez sur <code>Ctrl + C</code> pour arrêter le serveur.</p>
+
+    <hr>
+
+    <!-- Section 2 : Photos -->
+    <h1 id="photos">📸 Ajouter Vos Photos</h1>
+
+    <h2>Où Placer Vos Photos ?</h2>
+
+    <p>Vos photos vont dans le dossier <code>/public/galleries/</code> avec cette structure :</p>
+
+    <div class="file-structure">public/
+└── galleries/
+    ├── mariages/       ← Photos de mariages
+    ├── portraits/      ← Photos de portraits
+    ├── paysages/       ← Photos de paysages
+    └── evenements/     ← Photos d'événements</div>
+
+    <h2>Instructions Étape par Étape</h2>
+
+    <h3>Étape 1 : Préparer Vos Photos</h3>
+
+    <p><strong>Format recommandé :</strong></p>
+    <ul>
+        <li>Type : JPEG (.jpg)</li>
+        <li>Largeur maximum : 2000 pixels</li>
+        <li>Qualité : 80-85%</li>
+        <li>Poids : Moins de 500 KB par photo</li>
+    </ul>
+
+    <p><strong>Outils gratuits pour optimiser vos photos :</strong></p>
+    <ul>
+        <li><strong>En ligne :</strong> <a href="https://tinypng.com/" target="_blank">TinyPNG</a> ou <a href="https://squoosh.app/" target="_blank">Squoosh</a></li>
+        <li><strong>Windows :</strong> Utilisez "Redimensionner" dans Paint ou Photos</li>
+        <li><strong>Mac :</strong> Aperçu > Outils > Ajuster la taille</li>
+    </ul>
+
+    <h3>Étape 2 : Nommer Vos Photos</h3>
+
+    <div class="success">
+        <p><strong>✅ Exemples de bons noms :</strong></p>
+        <ul>
+            <li><code>mariage-sophie-marc-2024.jpg</code></li>
+            <li><code>portrait-studio-lea.jpg</code></li>
+            <li><code>paysage-montagne-sunset.jpg</code></li>
+        </ul>
+    </div>
+
+    <div class="danger">
+        <p><strong>❌ À éviter :</strong></p>
+        <ul>
+            <li><code>IMG_1234.jpg</code></li>
+            <li><code>Photo avec espaces.jpg</code></li>
+            <li><code>DSC_5678.jpg</code></li>
+        </ul>
+    </div>
+
+    <p><strong>Règles importantes :</strong></p>
+    <ul>
+        <li>Tout en minuscules</li>
+        <li>Pas d'espaces (utilisez des tirets <code>-</code>)</li>
+        <li>Pas d'accents ou caractères spéciaux</li>
+    </ul>
+
+    <h3>Étape 3 : Copier Vos Photos</h3>
+
+    <ol>
+        <li>Ouvrez le dossier du projet</li>
+        <li>Allez dans <code>public/galleries/</code></li>
+        <li>Choisissez la bonne catégorie (mariages, portraits, etc.)</li>
+        <li>Collez vos photos dans ce dossier</li>
+    </ol>
+
+    <p><strong>Exemple :</strong></p>
+    <ul>
+        <li>Photo de mariage → <code>public/galleries/mariages/</code></li>
+        <li>Photo de portrait → <code>public/galleries/portraits/</code></li>
+    </ul>
+
+    <h3>Étape 4 : Mettre à Jour la Configuration</h3>
+
+    <p>Ouvrez le fichier : <code>src/data/galleries.js</code></p>
+
+    <p>Trouvez la section correspondante et modifiez :</p>
+
+    <pre><code>{
+  id: 'mariages',
+  title: 'Mariages',
+  description: 'Vos beaux mariages',
+  coverImage: '/galleries/mariages/votre-photo-principale.jpg',  ← Changez ici
+  photoCount: 25,  ← Mettez le nombre réel de photos
+}</code></pre>
+
+    <p><strong>Répétez pour chaque catégorie</strong> (portraits, paysages, événements).</p>
+
+    <hr>
+
+    <!-- Section 3 : Personnalisation -->
+    <h1 id="personnalisation">✏️ Personnaliser Vos Informations</h1>
+
+    <h2>1. Votre Nom</h2>
+
+    <p><strong>Fichier :</strong> <code>src/components/Navigation/Navbar.jsx</code></p>
+    <p><strong>Ligne 36 :</strong> Remplacez <code>"Votre Nom Photo"</code> par votre nom ou nom commercial</p>
+
+    <pre><code>// Avant
+Votre Nom Photo
+
+// Après
+Studio Martin Photo</code></pre>
+
+    <h2>2. Vos Coordonnées</h2>
+
+    <p><strong>Fichier :</strong> <code>src/components/Navigation/Footer.jsx</code></p>
+
+    <table>
+        <tr>
+            <th>Ligne</th>
+            <th>Élément</th>
+            <th>À Modifier</th>
+        </tr>
+        <tr>
+            <td>31</td>
+            <td>Nom du studio</td>
+            <td>Studio Martin Photo</td>
+        </tr>
+        <tr>
+            <td>37</td>
+            <td>Ville</td>
+            <td>Paris, France</td>
+        </tr>
+        <tr>
+            <td>41</td>
+            <td>Téléphone</td>
+            <td>+33 6 12 34 56 78</td>
+        </tr>
+        <tr>
+            <td>45</td>
+            <td>Email</td>
+            <td>contact@studio-martin.com</td>
+        </tr>
+    </table>
+
+    <h2>3. Réseaux Sociaux</h2>
+
+    <p><strong>Fichier :</strong> <code>src/components/Navigation/Footer.jsx</code></p>
+    <p><strong>Lignes 6-9 :</strong> Modifiez vos liens</p>
+
+    <pre><code>const socialLinks = [
+  {
+    icon: Instagram,
+    href: 'https://instagram.com/studio_martin',  ← Votre Instagram
+    label: 'Instagram'
+  },
+  {
+    icon: Facebook,
+    href: 'https://facebook.com/studiomartin',  ← Votre Facebook
+    label: 'Facebook'
+  },
+  {
+    icon: Mail,
+    href: 'mailto:contact@studio-martin.com',  ← Votre email
+    label: 'Email'
+  }
+];</code></pre>
+
+    <h2>4. Votre Biographie</h2>
+
+    <p><strong>Fichier :</strong> <code>src/pages/AboutPage.jsx</code></p>
+    <p><strong>Lignes 62-76 :</strong> Écrivez votre histoire</p>
+
+    <pre><code>&lt;h2&gt;Jean Martin&lt;/h2&gt;  ← Votre nom
+&lt;div&gt;
+  &lt;p&gt;
+    Photographe professionnel depuis plus de 10 ans...  ← Votre bio
+  &lt;/p&gt;
+  &lt;p&gt;
+    Mon approche se concentre sur...  ← Votre philosophie
+  &lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+    <h2>5. Vos Tarifs</h2>
+
+    <p><strong>Fichier :</strong> <code>src/pages/PricingPage.jsx</code></p>
+    <p><strong>À partir de la ligne 129 :</strong> Modifiez vos packages</p>
+
+    <pre><code>{
+  name: "Essentiel",
+  price: 499,  ← Votre prix
+  description: "Parfait pour les petits événements",  ← Votre description
+  features: [
+    "2 heures de séance photo",  ← Vos prestations
+    "50 photos retouchées",
+    // ... ajoutez ou supprimez des lignes
+  ],
+}</code></pre>
+
+    <hr>
+
+    <!-- Section 4 : Structure -->
+    <h1 id="structure">🏗️ Structure du Site</h1>
+
+    <p>Votre site contient <strong>8 pages principales</strong> :</p>
+
+    <h2>1. Page d'Accueil (<code>/</code>)</h2>
+    <ul>
+        <li>Hero avec votre message principal</li>
+        <li>Statistiques (projets, clients, expérience)</li>
+        <li>Sélection de vos meilleures photos</li>
+        <li>Témoignages en aperçu</li>
+        <li>Appels à l'action</li>
+    </ul>
+
+    <h2>2. Galeries (<code>/galeries</code>)</h2>
+    <ul>
+        <li>Toutes vos photos organisées par catégorie</li>
+        <li>Filtres : Mariages, Portraits, Paysages, Événements</li>
+        <li>Lightbox (agrandissement des photos)</li>
+        <li>Navigation au clavier (← →)</li>
+    </ul>
+
+    <h2>3. Tarifs (<code>/tarifs</code>)</h2>
+    <ul>
+        <li>3 packages de base</li>
+        <li>Services additionnels</li>
+        <li>Conditions et informations de réservation</li>
+    </ul>
+
+    <h2>4. Blog (<code>/blog</code>)</h2>
+    <ul>
+        <li>Articles et conseils photo</li>
+        <li>Filtres par catégorie</li>
+        <li>Newsletter (optionnel)</li>
+    </ul>
+
+    <h2>5. À Propos (<code>/a-propos</code>)</h2>
+    <ul>
+        <li>Votre biographie</li>
+        <li>Votre équipement</li>
+        <li>Vos statistiques</li>
+        <li>Votre démarche créative</li>
+    </ul>
+
+    <h2>6. Contact (<code>/contact</code>)</h2>
+    <ul>
+        <li>Formulaire de contact détaillé</li>
+        <li>Vos coordonnées</li>
+        <li>Horaires de disponibilité</li>
+    </ul>
+
+    <h2>7. Témoignages (<code>/temoignages</code>)</h2>
+    <ul>
+        <li>Avis de vos clients</li>
+        <li>Carrousel interactif</li>
+        <li>Statistiques de satisfaction</li>
+    </ul>
+
+    <h2>8. Galerie Privée (<code>/galerie-privee</code>)</h2>
+    <ul>
+        <li>Accès protégé par code</li>
+        <li>Pour partager des photos avec vos clients</li>
+    </ul>
+
+    <hr>
+
+    <!-- Section 5 : Conseils Techniques -->
+    <h1 id="conseils">💡 Conseils Techniques</h1>
+
+    <h2>Optimiser Vos Photos</h2>
+
+    <h3>Pourquoi Optimiser ?</h3>
+    <ul>
+        <li><strong>Site plus rapide</strong> : Les visiteurs n'aiment pas attendre</li>
+        <li><strong>Meilleur référencement</strong> : Google préfère les sites rapides</li>
+        <li><strong>Économie de bande passante</strong> : Coûts d'hébergement réduits</li>
+    </ul>
+
+    <h3>Comment Optimiser ?</h3>
+
+    <h4>Méthode 1 : En ligne (Simple)</h4>
+    <ol>
+        <li>Allez sur <a href="https://tinypng.com/" target="_blank">TinyPNG.com</a></li>
+        <li>Glissez-déposez vos photos (max 20 à la fois)</li>
+        <li>Attendez la compression (gratuit)</li>
+        <li>Téléchargez les photos optimisées</li>
+    </ol>
+
+    <h4>Méthode 2 : Squoosh (Plus de contrôle)</h4>
+    <ol>
+        <li>Allez sur <a href="https://squoosh.app/" target="_blank">Squoosh.app</a></li>
+        <li>Chargez une photo</li>
+        <li>Réglez :
+            <ul>
+                <li>Format : JPEG</li>
+                <li>Qualité : 80</li>
+                <li>Redimensionner : 2000px max</li>
+            </ul>
+        </li>
+        <li>Téléchargez le résultat</li>
+    </ol>
+
+    <h2>Nommer Vos Fichiers Correctement</h2>
+
+    <div class="info">
+        <p><strong>Pourquoi c'est important ?</strong></p>
+        <ul>
+            <li>Aide le référencement Google</li>
+            <li>Facilite l'organisation</li>
+            <li>Évite les erreurs techniques</li>
+        </ul>
+    </div>
+
+    <h3>Règles d'or :</h3>
+
+    <div class="success">
+        <p><strong>✅ À FAIRE :</strong></p>
+        <ul>
+            <li>Minuscules uniquement : <code>photo.jpg</code></li>
+            <li>Tirets pour séparer : <code>mariage-sophie-2024.jpg</code></li>
+            <li>Descriptif : <code>portrait-studio-lea.jpg</code></li>
+        </ul>
+    </div>
+
+    <div class="danger">
+        <p><strong>❌ À ÉVITER :</strong></p>
+        <ul>
+            <li>Majuscules : <code>PHOTO.jpg</code></li>
+            <li>Espaces : <code>photo mariage.jpg</code></li>
+            <li>Accents : <code>mariée.jpg</code></li>
+            <li>Caractères spéciaux : <code>photo@test!.jpg</code></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <!-- Section 6 : Problèmes Courants -->
+    <h1 id="problemes">🔧 Problèmes Courants</h1>
+
+    <h2>Le Site Ne Se Lance Pas</h2>
+
+    <p><strong>Symptôme :</strong> Erreur quand vous faites <code>npm run dev</code></p>
+
+    <p><strong>Solutions :</strong></p>
+
+    <h3>1. Vérifiez Node.js :</h3>
+    <pre><code>node --version</code></pre>
+    <p>Doit afficher : v18 ou supérieur</p>
+
+    <h3>2. Réinstallez les dépendances :</h3>
+    <pre><code>rm -rf node_modules
+npm install</code></pre>
+
+    <h3>3. Port occupé :</h3>
+    <p>Le message dit "Port 5173 is in use"</p>
+    <p>→ C'est normal, il utilisera 5174 ou un autre port</p>
+
+    <h2>Les Photos Ne S'Affichent Pas</h2>
+
+    <p><strong>Vérifiez :</strong></p>
+
+    <h3>1. Le chemin est-il correct ?</h3>
+    <ul>
+        <li>Photo : <code>public/galleries/mariages/photo.jpg</code></li>
+        <li>Dans le code : <code>/galleries/mariages/photo.jpg</code></li>
+        <li>⚠️ Le <code>/public/</code> est automatique, ne le mettez pas dans le code</li>
+    </ul>
+
+    <h3>2. Le nom du fichier :</h3>
+    <ul>
+        <li>Pas d'espaces</li>
+        <li>Pas d'accents</li>
+        <li>Extension correcte (.jpg, .png)</li>
+    </ul>
+
+    <h3>3. La photo existe vraiment :</h3>
+    <ul>
+        <li>Ouvrez le dossier</li>
+        <li>Vérifiez que la photo est là</li>
+        <li>Vérifiez l'orthographe exacte</li>
+    </ul>
+
+    <hr>
+
+    <!-- Section 7 : Déploiement -->
+    <h1 id="deploiement">🌐 Déploiement en Ligne</h1>
+
+    <h2>Prérequis</h2>
+
+    <p>Avant de mettre votre site en ligne, assurez-vous que :</p>
+    <ul class="checklist">
+        <li>Toutes vos photos sont ajoutées</li>
+        <li>Toutes vos informations sont à jour</li>
+        <li>Vous avez testé toutes les pages</li>
+        <li>Le site fonctionne en local (npm run dev)</li>
+    </ul>
+
+    <h2>Option 1 : Netlify (Recommandé - Gratuit)</h2>
+
+    <h3>Étape 1 : Créer un compte</h3>
+    <ol>
+        <li>Allez sur <a href="https://www.netlify.com/" target="_blank">netlify.com</a></li>
+        <li>Cliquez sur "Sign up"</li>
+        <li>Inscrivez-vous avec GitHub ou email</li>
+    </ol>
+
+    <h3>Étape 2 : Préparer le déploiement</h3>
+    <p>Dans le terminal :</p>
+    <pre><code>npm run build</code></pre>
+    <p>Cela crée un dossier <code>dist/</code> avec votre site prêt.</p>
+
+    <h3>Étape 3 : Déployer</h3>
+    <p><strong>Méthode A - Drag & Drop (Simple) :</strong></p>
+    <ol>
+        <li>Sur Netlify, cliquez "Add new site" > "Deploy manually"</li>
+        <li>Glissez-déposez le dossier <code>dist/</code></li>
+        <li>Attendez quelques secondes</li>
+        <li>Votre site est en ligne ! 🎉</li>
+    </ol>
+
+    <h3>Étape 4 : Personnaliser l'URL</h3>
+    <p>Par défaut, Netlify vous donne une URL comme : <code>random-name-123.netlify.app</code></p>
+    <p>Pour la personnaliser :</p>
+    <ol>
+        <li>Allez dans "Site settings"</li>
+        <li>"Domain management"</li>
+        <li>"Change site name"</li>
+        <li>Choisissez : <code>studio-martin.netlify.app</code></li>
+    </ol>
+
+    <hr>
+
+    <!-- Section 8 : Checklist -->
+    <h1 id="checklist">✅ Checklist Avant Mise en Ligne</h1>
+
+    <p>Cochez chaque élément avant de publier votre site :</p>
+
+    <h2>Contenu</h2>
+    <ul class="checklist">
+        <li>Toutes les photos sont ajoutées et optimisées</li>
+        <li>Les photos ont des noms descriptifs</li>
+        <li>Les catégories sont configurées dans galleries.js</li>
+        <li>Le nombre de photos est correct dans la config</li>
+    </ul>
+
+    <h2>Informations Personnelles</h2>
+    <ul class="checklist">
+        <li>Votre nom/studio est à jour partout</li>
+        <li>Vos coordonnées (email, téléphone, adresse)</li>
+        <li>Vos réseaux sociaux sont liés correctement</li>
+        <li>Votre biographie est écrite</li>
+        <li>Vos tarifs sont corrects</li>
+    </ul>
+
+    <h2>Qualité</h2>
+    <ul class="checklist">
+        <li>Toutes les pages ont été testées</li>
+        <li>Les liens fonctionnent</li>
+        <li>Le formulaire de contact fonctionne</li>
+        <li>Les filtres de galerie fonctionnent</li>
+        <li>Le lightbox s'ouvre correctement</li>
+        <li>Le site est rapide (photos optimisées)</li>
+    </ul>
+
+    <h2>Professionnalisme</h2>
+    <ul class="checklist">
+        <li>Pas de fautes d'orthographe</li>
+        <li>Les informations sont cohérentes partout</li>
+        <li>Les témoignages sont à jour</li>
+        <li>Les statistiques correspondent à la réalité</li>
+    </ul>
+
+    <h2>Technique</h2>
+    <ul class="checklist">
+        <li>npm run dev fonctionne sans erreur</li>
+        <li>npm run build se termine avec succès</li>
+        <li>Aucune erreur dans la console du navigateur</li>
+        <li>Le site s'affiche bien sur mobile</li>
+        <li>Le site s'affiche bien sur tablette</li>
+        <li>Le site s'affiche bien sur desktop</li>
+    </ul>
+
+    <hr>
+
+    <!-- Section 9 : Support -->
+    <h1 id="support">📞 Support & Ressources</h1>
+
+    <h2>Ressources Utiles</h2>
+
+    <h3>Optimisation d'Images :</h3>
+    <ul>
+        <li><a href="https://tinypng.com/" target="_blank">TinyPNG</a> - Compression gratuite</li>
+        <li><a href="https://squoosh.app/" target="_blank">Squoosh</a> - Outil Google avancé</li>
+        <li><a href="https://imageoptim.com/" target="_blank">ImageOptim</a> - Application Mac</li>
+    </ul>
+
+    <h3>Icônes :</h3>
+    <ul>
+        <li><a href="https://lucide.dev/icons" target="_blank">Lucide Icons</a> - Toutes les icônes disponibles</li>
+    </ul>
+
+    <h3>Hébergement :</h3>
+    <ul>
+        <li><a href="https://www.netlify.com/" target="_blank">Netlify</a> - Hébergement gratuit recommandé</li>
+        <li><a href="https://vercel.com/" target="_blank">Vercel</a> - Alternative gratuite</li>
+    </ul>
+
+    <h2>Commandes Utiles à Retenir</h2>
+
+    <pre><code># Démarrer le site en local
+npm run dev
+
+# Créer une version de production
+npm run build
+
+# Déployer sur Netlify (si configuré)
+npm run deploy
+
+# Vérifier la version de Node
+node --version
+
+# Réinstaller les dépendances (en cas de problème)
+rm -rf node_modules
+npm install</code></pre>
+
+    <hr>
+
+    <!-- Conclusion -->
+    <h1>🚀 Félicitations !</h1>
+
+    <p>Vous avez maintenant toutes les clés pour gérer votre portfolio photographe professionnel.</p>
+
+    <h2>Ce que vous savez faire :</h2>
+    <ul class="checklist">
+        <li>Ajouter et organiser vos photos</li>
+        <li>Personnaliser toutes vos informations</li>
+        <li>Modifier les tarifs et packages</li>
+        <li>Gérer les témoignages et le blog</li>
+        <li>Créer des galeries privées pour clients</li>
+        <li>Mettre votre site en ligne</li>
+        <li>Résoudre les problèmes courants</li>
+    </ul>
+
+    <div class="info">
+        <p><strong>N'oubliez pas :</strong></p>
+        <ul>
+            <li>Sauvegardez régulièrement</li>
+            <li>Testez avant de publier</li>
+            <li>Demandez des retours</li>
+            <li>Mettez à jour le contenu régulièrement</li>
+        </ul>
+    </div>
+
+    <div class="success">
+        <p style="text-align: center; font-size: 1.2em; margin: 20px 0;">
+            <strong>Bon courage et beaucoup de succès avec votre nouveau site ! 📸✨</strong>
+        </p>
+    </div>
+
+    <hr>
+
+    <p style="text-align: center; color: #7f8c8d; margin-top: 40px;">
+        <em>Document créé pour le Portfolio Photographe v2.0</em><br>
+        <em>Template React Vite</em>
+    </p>
+</body>
+</html>

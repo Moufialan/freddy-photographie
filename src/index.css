@@ -1,3 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  /* Fond global photographe - noir chaud */
+  body {
+    @apply bg-gradient-to-br from-primary-950 via-primary-900 to-secondary-950 text-accent-100;
+    @apply min-h-screen;
+  }
+
+  /* Scroll smooth */
+  html {
+    @apply scroll-smooth;
+  }
+
+  /* Amélioration des images */
+  img {
+    @apply max-w-full h-auto;
+  }
+}
+
+@layer utilities {
+  /* Utilitaire pour grille masonry */
+  .masonry-grid {
+    column-count: 1;
+    column-gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .masonry-grid {
+      column-count: 2;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .masonry-grid {
+      column-count: 3;
+    }
+  }
+
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+
+  /* Effet glassmorphisme pour cartes */
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  /* Overlay gradient pour photos */
+  .photo-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent;
+  }
+}
