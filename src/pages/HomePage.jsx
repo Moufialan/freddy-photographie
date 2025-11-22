@@ -1,14 +1,75 @@
 import { motion } from "framer-motion";
 import { Camera, ArrowRight, Star, Heart, Award } from "lucide-react";
 import { Link } from "react-router-dom";
+import PhotoCarousel from "../components/UI/PhotoCarousel";
 
 const HomePage = () => {
-  // Best-of photos (placeholder - à remplacer par vraies photos)
-  const featuredPhotos = [
-    { id: 1, category: "Mariage", image: "/featured/wedding.jpg" },
-    { id: 2, category: "Portrait", image: "/featured/portrait.jpg" },
-    { id: 3, category: "Paysage", image: "/featured/landscape.jpg" },
-    { id: 4, category: "Événement", image: "/featured/event.jpg" },
+  // Photos du carousel - Les meilleures photos de La Réunion
+  const carouselPhotos = [
+    {
+      src: "/galleries/Acceuil/paille en queue 5.png",
+      alt: "Paille-en-queue en vol - Île de La Réunion",
+      title: "Paille-en-Queue",
+      description: "L'oiseau emblématique de La Réunion capturé en plein vol"
+    },
+    {
+      src: "/galleries/Acceuil/baleine doréebcouchée de soleil .png",
+      alt: "Baleine à bosse au coucher de soleil",
+      title: "Ballet des Baleines",
+      description: "Magie d'un coucher de soleil avec les baleines à bosse"
+    },
+    {
+      src: "/galleries/Acceuil/Un rorqual à bosse  coucher de soleil.png",
+      alt: "Rorqual à bosse dans les eaux réunionnaises",
+      title: "Rorqual à Bosse",
+      description: "Rencontre privilégiée avec les géants des mers"
+    },
+    {
+      src: "/galleries/Acceuil/coucher de soleil au volcan.png",
+      alt: "Coucher de soleil sur le Piton de la Fournaise",
+      title: "Volcan en Lumière",
+      description: "Le Piton de la Fournaise sous les couleurs du couchant"
+    },
+    {
+      src: "/galleries/Acceuil/VOLCAN 2.png",
+      alt: "Le volcan actif de La Réunion",
+      title: "Terre de Feu",
+      description: "La puissance du Piton de la Fournaise"
+    },
+    {
+      src: "/galleries/Acceuil/volcan.png",
+      alt: "Paysage volcanique réunionnais",
+      title: "Paysages Volcaniques",
+      description: "L'île intense et ses merveilles naturelles"
+    }
+  ];
+
+  // Photos de mariages pour la section galerie
+  const weddingPhotos = [
+    {
+      id: 1,
+      src: "/galleries/mariages/vsf-8894.jpg",
+      alt: "Mariage à La Réunion",
+      category: "Mariages"
+    },
+    {
+      id: 2,
+      src: "/galleries/mariages/vsf-8895.jpg",
+      alt: "Cérémonie de mariage",
+      category: "Mariages"
+    },
+    {
+      id: 3,
+      src: "/galleries/mariages/vsf-8899.jpg",
+      alt: "Photos de couple",
+      category: "Mariages"
+    },
+    {
+      id: 4,
+      src: "/galleries/mariages/vsf-8902.jpg",
+      alt: "Moments précieux",
+      category: "Mariages"
+    }
   ];
 
   const stats = [
@@ -20,86 +81,97 @@ const HomePage = () => {
 
   return (
     <>
-      {/* Hero Section - Design Lumineux et Élégant */}
-      <motion.section
-        className="min-h-[85vh] flex flex-col justify-center items-center text-center mb-40 relative"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        {/* Background subtil avec photo en opacity très basse (optionnel) */}
-        <div className="absolute inset-0 -z-10 opacity-5">
-          <div className="w-full h-full bg-gradient-to-br from-gold-100 to-nude-100" />
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.9 }}
-          className="space-y-8"
+      {/* Hero Section - Plein écran avec photo immersive */}
+      <div className="relative -mt-32 -mx-6 lg:-mx-12">
+        <motion.section
+          className="relative min-h-screen flex items-center justify-center mb-20 bg-black"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
         >
-          {/* Titre principal - Élégant avec Playfair Display */}
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-heading font-semibold text-[#7D6B5A] mb-6 leading-tight">
-            Capturez L'Instant
-          </h1>
-
-          {/* Sous-titre - Lettres espacées */}
-          <p className="text-sm md:text-base font-subheading font-light text-[#A89080] tracking-ultra-wide uppercase mb-8">
-            Photographe de Moments Lumineux et Sincères
-          </p>
-
-          {/* Description */}
-          <p className="text-lg md:text-xl font-body text-[#8F7A65] max-w-3xl mx-auto mb-12 leading-relaxed px-4">
-            Photographe professionnel passionné, je capture l'authenticité de vos émotions
-            et la beauté de vos instants précieux avec sensibilité et créativité.
-          </p>
-
-          {/* CTA Buttons - Sophistiqués et élégants */}
-          <motion.div
-            className="flex flex-wrap gap-6 justify-center items-center pt-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-          >
-            <Link to="/galeries">
-              <motion.button
-                className="px-12 py-4 bg-gold-gradient text-cream-50 rounded-xl font-subheading font-semibold text-sm tracking-extra-wide uppercase shadow-soft-lg hover:shadow-elegant transition-all duration-300"
-                whileHover={{ scale: 1.05, y: -3 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              >
-                Découvrir mes Galeries
-              </motion.button>
-            </Link>
-            <Link to="/contact">
-              <motion.button
-                className="px-12 py-4 border-2 border-[#A89080] text-[#8B7355] rounded-xl font-subheading font-semibold text-sm tracking-extra-wide uppercase hover:border-[#D4A574] hover:bg-cream-200 hover:text-[#7D6B5A] transition-all duration-300 shadow-soft"
-                whileHover={{ scale: 1.05, y: -3 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              >
-                Me Contacter
-              </motion.button>
-            </Link>
-          </motion.div>
-        </motion.div>
-
-        {/* Scroll Indicator - Subtil */}
-        <motion.div
-          className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
-        >
-          <div className="w-5 h-9 border border-[#A89080] rounded-full flex justify-center pt-2">
-            <div className="w-1 h-2 bg-gold-400 rounded-full"></div>
+          {/* Background Image - Paille en queue */}
+          <div className="absolute inset-0">
+            <img
+              src="/galleries/Acceuil/paille en queue 5.png"
+              alt="Paille-en-queue - Oiseau emblématique de La Réunion"
+              className="w-full h-full object-cover"
+            />
+            {/* Gradient Overlay pour lisibilité */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-transparent" />
           </div>
-        </motion.div>
-      </motion.section>
 
-      {/* Stats Section - Élégante et aérée */}
+          {/* Hero Content */}
+          <div className="relative z-10 text-center px-4 pt-32 pb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.9 }}
+            className="space-y-8"
+          >
+            {/* Titre principal */}
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-white mb-6 leading-tight drop-shadow-2xl">
+              Capturez L'Instant
+            </h1>
+
+            {/* Sous-titre */}
+            <p className="text-sm md:text-base font-subheading font-light text-cream-100 tracking-ultra-wide uppercase mb-8 drop-shadow-lg">
+              Photographe à l'Île de La Réunion
+            </p>
+
+            {/* Description */}
+            <p className="text-lg md:text-2xl font-body text-white max-w-3xl mx-auto mb-12 leading-relaxed drop-shadow-lg">
+              Passionné de photographie, je capture l'authenticité de vos émotions<br className="hidden md:block" />
+              et la beauté des merveilles de l'île intense
+            </p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              className="flex flex-wrap gap-6 justify-center items-center pt-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+            >
+              <Link to="/galeries">
+                <motion.button
+                  className="px-12 py-4 bg-gold-gradient text-white rounded-xl font-subheading font-semibold text-sm tracking-extra-wide uppercase shadow-elegant hover:shadow-2xl transition-all duration-300"
+                  whileHover={{ scale: 1.05, y: -3 }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  Découvrir mes Galeries
+                </motion.button>
+              </Link>
+              <Link to="/contact">
+                <motion.button
+                  className="px-12 py-4 border-2 border-white/80 backdrop-blur-sm text-white rounded-xl font-subheading font-semibold text-sm tracking-extra-wide uppercase hover:bg-white hover:text-[#7D6B5A] transition-all duration-300 shadow-soft"
+                  whileHover={{ scale: 1.05, y: -3 }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  Me Contacter
+                </motion.button>
+              </Link>
+            </motion.div>
+          </motion.div>
+
+          {/* Scroll Indicator */}
+          <motion.div
+            className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
+          >
+            <div className="w-5 h-9 border-2 border-white/80 rounded-full flex justify-center pt-2">
+              <div className="w-1 h-2 bg-white rounded-full"></div>
+            </div>
+          </motion.div>
+        </div>
+        </motion.section>
+      </div>
+
+      {/* Stats Section */}
       <motion.section
-        className="mb-40 py-20"
+        className="mb-32 py-12"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -123,9 +195,29 @@ const HomePage = () => {
         </div>
       </motion.section>
 
-      {/* Featured Photos Section */}
+      {/* Carousel Section - Meilleures Photos */}
       <motion.section
-        className="mb-40"
+        className="mb-32"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
+      >
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-semibold text-[#7D6B5A] mb-6">
+            Best-Of : L'Île Intense
+          </h2>
+          <p className="text-base font-body text-[#8F7A65] max-w-2xl mx-auto leading-relaxed">
+            Découvrez les merveilles de La Réunion à travers mon objectif
+          </p>
+        </div>
+
+        <PhotoCarousel photos={carouselPhotos} autoPlayInterval={6000} />
+      </motion.section>
+
+      {/* Galerie Mariages Preview */}
+      <motion.section
+        className="mb-32"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -133,30 +225,31 @@ const HomePage = () => {
       >
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-semibold text-[#7D6B5A] mb-6">
-            Sélection Best-Of
+            Mariages & Événements
           </h2>
           <p className="text-base font-body text-[#8F7A65] max-w-2xl mx-auto leading-relaxed">
-            Découvrez quelques-uns de mes clichés favoris à travers différentes catégories
+            Immortalisez vos moments les plus précieux
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-12">
-          {featuredPhotos.map((photo, index) => (
+          {weddingPhotos.map((photo, index) => (
             <motion.div
               key={photo.id}
-              className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-cream-400 cursor-pointer shadow-soft hover:shadow-elegant transition-all duration-400"
+              className="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer shadow-soft hover:shadow-elegant transition-all duration-400"
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15, duration: 0.6 }}
               whileHover={{ scale: 1.02, y: -5 }}
             >
-              {/* Placeholder - remplacer par vraie photo */}
-              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-cream-300 to-cream-100 transition-transform duration-500 group-hover:scale-110">
-                <Camera className="w-20 h-20 text-[#A89080] stroke-[1]" />
-              </div>
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
 
-              {/* Overlay - Subtil et élégant */}
+              {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#7D6B5A]/90 via-[#7D6B5A]/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
                 <div className="absolute bottom-0 left-0 right-0 p-8">
                   <h3 className="text-2xl font-heading font-semibold text-cream-50 mb-3">{photo.category}</h3>
@@ -191,9 +284,9 @@ const HomePage = () => {
         </motion.div>
       </motion.section>
 
-      {/* Services CTA Section - Élégant et spacieux */}
+      {/* Services CTA Section */}
       <motion.section
-        className="mb-40"
+        className="mb-32"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -232,7 +325,7 @@ const HomePage = () => {
         </div>
       </motion.section>
 
-      {/* Testimonials Teaser - Élégant */}
+      {/* Testimonials Section */}
       <motion.section
         className="mb-20"
         initial={{ opacity: 0, y: 40 }}
